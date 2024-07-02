@@ -1,0 +1,11 @@
+@import '../../styles/index';
+
+.input {
+  border: 1px solid $neutral-light-grayish-violet;
+  &:focus {
+    border-image: $primary-gradient 1;
+  }
+  &.error {
+    border-color: $primary-red;
+  }
+}

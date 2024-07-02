@@ -1,0 +1,76 @@
+// Fontes
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+// Primary
+$primary-gradient: linear-gradient(to right, hsl(249, 99%, 64%), hsl(278, 94%, 30%));
+$primary-red: hsl(0, 100%, 66%);
+
+// Neutral
+$neutral-white: hsl(0, 0%, 100%);
+$neutral-light-grayish-violet: hsl(270, 3%, 87%);
+$neutral-dark-grayish-violet: hsl(279, 6%, 55%);
+$neutral-very-dark-violet: hsl(278, 68%, 11%);
+
+:root {
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: "Space Grotesk", sans-serif;
+    line-height: 1.5;
+    font-weight: 500;
+    justify-content: center;
+    font-size: 18px;
+    margin: 0;
+    display: flex;
+    min-width: 320px;
+    min-height: 100vh;
+    background-color: $neutral-white;
+    color: $neutral-dark-grayish-violet;
+}
+
+.App {
+    background: url("../assets/images/bg-main-desktop.png") repeat-y;
+    border: 1px solid red;
+    max-width: 1440px;
+    width: 100vw;
+}
+
+h1 {
+    font-size: 3.2em;
+    line-height: 1.1;
+}
+
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #220930;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+
+button:hover {
+    border-color: #6216AF;
+}
+
+button:focus,
+button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media screen and (max-width: 1024px) {
+    .App {
+        background-image: url("../assets/images/bg-main-mobile.png");
+        background-position: top center;
+        background-repeat: repeat-x;
+        background-clip: border-box;
+        background-size: contain;
+    }
+}
