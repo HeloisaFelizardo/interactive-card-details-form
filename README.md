@@ -56,9 +56,9 @@ Users should be able to:
 
 ### FormCard.jsx
 
-- **useState**: Manages local states (`validated`, `showModal`, `cardNumberValid`) in the functional component `FormCard`.
-- **handleCardNumberChange**: Function to handle changes in the card number field. Uses regex to validate the format and updates the card number state (`cardNumber`) and its validity (`cardNumberValid`).
+- **useState**: Manages local states (`validated`, `showModal`) in the functional component `FormCard`.
 - **handleSubmit**: Function called when submitting the form. Checks if the form is valid. If not, prevents default submission and event propagation. If valid, prevents default submission and shows a confirmation modal (`showModal`).
+- **handleContinue**: Function to reset form fields and states after the confirmation modal is shown. Resets validation states, input fields, and hides the modal.
 - **Form and Modal**: Conditional rendering based on the `showModal` state. The form is displayed if `showModal` is `false`. The confirmation modal is displayed if `showModal` is `true`, after successful form submission.
 - **Validations**: Uses regex patterns for name, card number, month, year, and CVC fields to ensure valid input. Provides visual feedback to users using React Bootstrap (`Form.Control.Feedback`) to indicate invalid fields.
 - **PropTypes**: Defines PropTypes to ensure that required functions (`setName`, `setCardNumber`, `setMonth`, `setYear`, `setCvc`) are correctly passed as props to `FormCard`.
@@ -118,6 +118,3 @@ Open [http://localhost:3000](http://localhost:3000) in your browser to view the 
 - **eslint-plugin-react-hooks**: ESLint rules for React hooks.
 - **eslint-plugin-react-refresh**: ESLint plugin for React Fast Refresh.
 - **Vite**: Next generation front-end tooling.
-
-
-
