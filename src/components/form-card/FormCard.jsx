@@ -31,6 +31,17 @@ function FormCard({ setName, setCardNumber, setMonth, setYear, setCvc }) {
     setValidated(true); // Marca o formulário como validado
   };
 
+  //Função para limpar os campos do formulário
+  const handleContinue = () => {
+    setValidated(false);
+    setName('');
+    setCardNumber('');
+    setMonth('');
+    setYear('');
+    setCvc('');
+    setShowModal(false); //Ocultar o modal
+  };
+
   return (
     <Container className='container-form'>
       {!showModal ? ( // Renderiza o formulário se showModal for falso, caso contrário, renderiza o modal
@@ -70,7 +81,7 @@ function FormCard({ setName, setCardNumber, setMonth, setYear, setCvc }) {
             </Form.Group>
           </Row>
           <Row className="mb-3">
-            <Form.Group as={Col} md="6">
+            <Form.Group as={Col} xs="6">
               <Form.Label>Exp. Date (MM/YY)</Form.Label>
               <InputGroup>
                 <Form.Control
@@ -94,7 +105,7 @@ function FormCard({ setName, setCardNumber, setMonth, setYear, setCvc }) {
                 </Form.Control.Feedback>
               </InputGroup>
             </Form.Group>
-            <Form.Group as={Col} md="6">
+            <Form.Group as={Col} xs="6">
               <Form.Label>CVC</Form.Label>
               <Form.Control
                 id='cvc'
@@ -117,7 +128,7 @@ function FormCard({ setName, setCardNumber, setMonth, setYear, setCvc }) {
             <Image src={complete} />
             <h2>Thank You!</h2>
             <p>We've added your card details.</p>
-            <Button onClick={() => setShowModal(false)}>Continue</Button>
+            <Button onClick={handleContinue}>Continue</Button>
           </Modal.Body>
         </Modal.Dialog>
       )}

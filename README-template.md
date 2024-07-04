@@ -1,26 +1,30 @@
-# Frontend Mentor - Interactive card details form solution
+Certainly! Below is the updated README.md file tailored to the project based on the information provided:
 
-This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+---
 
-## Table of contents
+# Interactive Card Details Form Solution
+
+This is a solution to the [Interactive card details form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/interactive-card-details-form-XpS8cKZDWw). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+
+## Table of Contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [The Challenge](#the-challenge)
   - [Screenshot](#screenshot)
   - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
-  - [Useful resources](#useful-resources)
-- [Author](#author)
-- [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
+- [Project Details](#project-details)
+  - [App.jsx](#appjsx)
+  - [FormCard.jsx](#formcardjsx)
+  - [Card.jsx](#cardjsx)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Scripts](#scripts)
+- [Dependencies](#dependencies)
+- [Dev Dependencies](#dev-dependencies)
 
 ## Overview
 
-### The challenge
+### The Challenge
 
 Users should be able to:
 
@@ -33,83 +37,87 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Interactive Card Details Form](./src/assets/design/desktop1.png)
+![Interactive Card Details Form](./src/assets/design/mobile1.png)
 
 ### Links
 
 - Solution URL: [Add solution URL here](https://your-solution-url.com)
 - Live Site URL: [Add live site URL here](https://your-live-site-url.com)
 
-## My process
+## Project Details
 
-### Built with
+### App.jsx
 
-- Semantic HTML5 markup
-- CSS custom properties
-- Flexbox
-- CSS Grid
-- Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- **useState**: Each `useState` creates a local state in the App component. They are used to store information such as the cardholder's name (`name`), card number (`cardNumber`), expiration month (`month`), year (`year`), and security code (`cvc`).
+- **Container, Row, Col**: React Bootstrap components used for responsive layout. `Container` defines the main structure of the application, `Row` organizes components into rows, and `Col` divides horizontal space to position the `Card` and `FormCard` components side by side.
+- **Card and FormCard**: Components imported from `Card.jsx` and `FormCard.jsx`. `Card` displays card details based on the local states defined in `App`, while `FormCard` allows users to input and validate card data, updating local states in `App`.
+- **Props**: Props are passed from `App` to `Card` and `FormCard` to facilitate data communication between components. Each property and function is documented to explain its role within the `App` component.
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+### FormCard.jsx
 
-### What I learned
+- **useState**: Manages local states (`validated`, `showModal`, `cardNumberValid`) in the functional component `FormCard`.
+- **handleCardNumberChange**: Function to handle changes in the card number field. Uses regex to validate the format and updates the card number state (`cardNumber`) and its validity (`cardNumberValid`).
+- **handleSubmit**: Function called when submitting the form. Checks if the form is valid. If not, prevents default submission and event propagation. If valid, prevents default submission and shows a confirmation modal (`showModal`).
+- **Form and Modal**: Conditional rendering based on the `showModal` state. The form is displayed if `showModal` is `false`. The confirmation modal is displayed if `showModal` is `true`, after successful form submission.
+- **Validations**: Uses regex patterns for name, card number, month, year, and CVC fields to ensure valid input. Provides visual feedback to users using React Bootstrap (`Form.Control.Feedback`) to indicate invalid fields.
+- **PropTypes**: Defines PropTypes to ensure that required functions (`setName`, `setCardNumber`, `setMonth`, `setYear`, `setCvc`) are correctly passed as props to `FormCard`.
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+### Card.jsx
 
-To see how you can add code snippets, see below:
+- **Container**: React Bootstrap component wrapping the card content, defining its main structure.
+- **card-front**: Div representing the front part of the card, displaying the logo, card number, cardholder's name, and expiration date.
+- **Image**: React Bootstrap component used to display the card logo image.
+- **card-back**: Div representing the back part of the card, displaying the security code (CVC).
+- **Placeholders**: Default values displayed if fields (`name`, `cardNumber`, `month`, `year`, `cvc`) are empty.
+- **PropTypes**: Defines expected properties (`name`, `cardNumber`, `month`, `year`, `cvc`) for the `Card` component to validate received data types.
+- **Export default**: Default export of the `Card` component for use in other React components.
 
-```html
-<h1>Some HTML code I'm proud of</h1>
+## Installation
+
+Make sure you have Node.js and npm installed. Clone this repository, navigate to the project directory, and install dependencies:
+
+```bash
+git clone https://github.com/your_username/interactive-card-details-form.git
+cd interactive-card-details-form
+npm install
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
+
+## Usage
+
+To start the development server:
+
+```bash
+npm run dev
 ```
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-**Note: Delete this note and the content within this section and replace with your own learnings.**
+## Scripts
 
-### Continued development
+- `npm run dev`: Starts the development server using Vite.
+- `npm run build`: Builds the production-ready bundle for deployment.
+- `npm run lint`: Runs ESLint to lint all JavaScript and JSX files.
+- `npm run preview`: Previews the production build locally using Vite.
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
+## Dependencies
 
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+- **React**: JavaScript library for building user interfaces.
+- **React DOM**: React package for DOM rendering.
+- **React Bootstrap**: React components for Bootstrap framework.
+- **Bootstrap**: Front-end framework for designing websites and web applications.
+- **Prop Types**: Runtime type checking for React props and similar objects.
+- **Sass**: CSS extension language.
 
-### Useful resources
+## Dev Dependencies
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
+- **ESLint**: Pluggable JavaScript linter.
+- **@types/react**: TypeScript types for React.
+- **@vitejs/plugin-react-swc**: Vite plugin for React.
+- **eslint-plugin-react**: ESLint rules specific to React.
+- **eslint-plugin-react-hooks**: ESLint rules for React hooks.
+- **eslint-plugin-react-refresh**: ESLint plugin for React Fast Refresh.
+- **Vite**: Next generation front-end tooling.
 
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
-## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
