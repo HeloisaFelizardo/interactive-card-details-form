@@ -7,23 +7,23 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  border: 1px solid red;
   height: 99vh;
 }
 
 .card-front {
   position: absolute;
+  border-radius: 10px;
   top: 120px;
   z-index: 0;
   background-image: url("../../assets/images/bg-card-front.png");
   background-repeat: no-repeat;
   background-size: contain;
   width: 445px;
-  height: 245px;
+  height: 244px;
   min-width: 280px;
   min-height: 150px;
  color: white;
-  border: 1px solid green;
+  box-shadow: 0 0 36px 1px rgba(0,0,0,0.3);
 }
 
 #card-number{
@@ -61,6 +61,7 @@
 
 .card-back {
   position: absolute;
+  border-radius: 10px;
   top: 400px;
   right: 40px;
   z-index: 1;
@@ -68,17 +69,17 @@
   background-repeat: no-repeat;
   background-size: contain;
   width: 445px;
-  height: 245px;
+  height: 244px;
   min-width: 280px;
   min-height: 150px;
-border: 1px solid blue;
+  box-shadow: 0 0 36px 1px rgba(0,0,0,0.3);
 }
 
 .logo{
   margin: 25px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 992px) {
   .container-card{
     height: 73vh;
   }
@@ -94,13 +95,13 @@ border: 1px solid blue;
 @media screen and (max-width: 576px) {
   .card-front{
     width: 290px;
-    height: 160px;
+    height: 159px;
     top: 140px;
     z-index: 10;
   }
   .card-back{
     width: 290px;
-    height: 160px;
+    height: 159px;
     top: 40px;
     right: 40px;
   }

@@ -1,11 +1,80 @@
 @import '../../styles/index';
+.container-form{
+  margin: 200px auto 0;
+  max-width: 380px !important;
+}
 
-.input {
+input {
   border: 1px solid $neutral-light-grayish-violet;
+  outline: none;
+
   &:focus {
+    border-color: transparent;
     border-image: $primary-gradient 1;
+    border-radius: 5px;
   }
+
   &.error {
     border-color: $primary-red;
+  }
+}
+
+.form-control {
+  color: $neutral-very-dark-violet;
+  text-transform: uppercase;
+}
+
+.form-label {
+  color: $neutral-very-dark-violet;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#name {
+  text-transform: capitalize;
+}
+
+#month {
+  border-radius: 5px;
+}
+
+#year {
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
+button {
+  background-color: $neutral-very-dark-violet !important;
+  border: 1px solid $violet !important;
+  width: 100%;
+}
+
+button:hover {
+  background-color: $violet !important;
+}
+
+.modal-content{
+  border: none !important;
+  text-align: center;
+  img{
+    margin: 40px 0;
+  }
+  h2{
+    font-size: 26px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: $neutral-very-dark-violet ;
+  }
+  button{
+    margin: 40px 0;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .container-form {
+    margin: 0 auto 40px;
+
   }
 }
